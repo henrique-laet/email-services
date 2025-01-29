@@ -1,6 +1,7 @@
 package com.Laet.email_services.infra.ses;
 
 import com.Laet.email_services.adapters.EmailSenderGateway;
+import com.Laet.email_services.core.exception.EmailServiceException;
 import com.amazonaws.services.simpleemail.AmazonSimpleEmailService;
 import com.amazonaws.services.simpleemail.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,8 +29,8 @@ public class SesEmailSender implements EmailSenderGateway {
                 );
         try {
             this.amazonSimpleEmailService.sendEmail(request);
-        } catch (AmazonSimpleEmailServiceException e) {
-            throw new EmailServiceException("Failure while sending email");
+        } catch (AmazonSimpleEmailServiceException exception) {
+            throw new EmailServiceException("Failure while sending email", exception);
         }
 
     }
