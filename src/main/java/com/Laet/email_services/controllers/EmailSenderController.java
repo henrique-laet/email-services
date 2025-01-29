@@ -1,6 +1,7 @@
 package com.Laet.email_services.controllers;
 
 import com.Laet.email_services.application.EmailSenderService;
+import com.Laet.email_services.core.EmailRequest;
 import com.Laet.email_services.core.exception.EmailServiceException;
 import com.amazonaws.Response;
 import org.springframework.beans.factory.annotation.Autowired;
